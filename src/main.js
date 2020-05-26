@@ -10,3 +10,12 @@ new Vue({
 	store,
 	render: h => h(App)
 }).$mount('#app')
+
+// router.beforeEach((to, from, next) => {
+// 	console.log(to.name)
+// 	console.log(from.name)
+// 	if (to.name == from.name) {
+// 		console.log(0)
+// 		next(false)
+// 	}
+// })
