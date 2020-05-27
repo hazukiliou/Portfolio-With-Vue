@@ -4,6 +4,7 @@
 			<li v-for="(item, i) in todoList" :key="i">
 				<BaseCheckbox :checkStatus.sync="item.completed"></BaseCheckbox>
 				<span>{{ item.title }}</span>
+				<div class="label" :class="label" v-for="label in item.labels" :key="label">{{ label }}</div>
 				<div class="truncate">
 					{{ item.truncate }}
 				</div>
@@ -82,6 +83,40 @@ export default {
 
 		&:last-of-type {
 			border: none;
+		}
+
+		.label {
+			position: relative;
+			line-height: 25px;
+			padding: 0 15px 0 23px;
+			background-color: #10163a;
+			border-radius: 20px;
+			margin-left: 10px;
+			color: #c2c6dc;
+
+			&::before {
+				position: absolute;
+				content: '';
+				width: 7px;
+				height: 7px;
+				background: #CCC;
+				left: 10px;
+				top: 50%;
+				transform: translateY(-50%);
+				border-radius: 50%;
+			}
+
+			&.Todolist {
+				&::before {
+					background-color: #7367f0;
+				}
+			}
+
+			&.Component {
+				&::before {
+					background-color: #ff9f43;
+				}
+			}
 		}
 
 		.truncate {

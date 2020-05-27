@@ -1,9 +1,10 @@
 <template>
 	<div class="sidebar">
 		<ul class="sidebar-list">
-			<li :class="{'active': item.name === nowPage }"
+			<li :class="{'active': item.link === nowPage }"
 				v-for="item in sidebarList"
-				:key="item.name">{{ item.name }}</li>
+				:key="item.name"
+				@click="$router.push({ name: item.link })">{{ item.name }}</li>
 		</ul>
 	</div>
 </template>
@@ -14,11 +15,11 @@ export default {
 		return {
 			sidebarList: [
 				{
-					link: '',
+					link: 'TodoList',
 					name: 'Todo'
 				},
 				{
-					link: '',
+					link: 'home',
 					name: 'Calendar'
 				}
 			]
@@ -27,7 +28,7 @@ export default {
 	computed: {
 		nowPage() {
 			// todo 根據router參數切換頁面？
-			return 'Todo'
+			return this.$route.name
 		}
 	}
 }
