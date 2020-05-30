@@ -27,7 +27,6 @@ export default {
 	},
 	computed: {
 		nowPage() {
-			// todo 根據router參數切換頁面？
 			return this.$route.name
 		}
 	}
@@ -42,6 +41,7 @@ export default {
 	height: 100%;
 	top: 0;
 	left: 0;
+	transition: transform ease-in-out 500ms;
 }
 
 .sidebar-list {
@@ -69,6 +69,12 @@ export default {
 				transform: none;
 			}
 		}
+	}
+}
+
+@media (max-width: $max-width) {
+	.sidebar {
+		transform: translateX(-100%);
 	}
 }
 </style>

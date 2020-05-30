@@ -1,23 +1,35 @@
 <template>
 	<main>
-		<Sidebar></Sidebar>
+		<TheSidebar></TheSidebar>
 		<router-view />
 	</main>
 
 </template>
 
 <script>
-import Sidebar from '@/components/Sidebar'
+import TheSidebar from '@/components/TheSidebar'
 
 export default {
+	data() {
+		return {
+			
+		}
+	},
 	components: {
-		Sidebar
+		TheSidebar
 	}
 }
 </script>
 
-<style>
+<style lang="scss">
 main {
 	padding: 50px 20px 0 280px;
+	transition: padding-left ease-in-out 500ms;
+}
+
+@media (max-width: $max-width) {
+	main {
+		padding-left: 20px;
+	}
 }
 </style>
