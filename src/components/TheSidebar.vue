@@ -1,5 +1,5 @@
 <template>
-	<div class="sidebar">
+	<div class="sidebar" :class="{'show': sidebar}" @click.stop>
 		<ul class="sidebar-list">
 			<li :class="{'active': item.link === nowPage }"
 				v-for="item in sidebarList"
@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
 	data() {
 		return {
@@ -26,6 +28,7 @@ export default {
 		}
 	},
 	computed: {
+		...mapState(['sidebar']),
 		nowPage() {
 			return this.$route.name
 		}
@@ -42,6 +45,11 @@ export default {
 	top: 0;
 	left: 0;
 	transition: transform ease-in-out 500ms;
+	z-index: 5;
+
+	&.show {
+		transform: translateX(0);
+	}
 }
 
 .sidebar-list {
