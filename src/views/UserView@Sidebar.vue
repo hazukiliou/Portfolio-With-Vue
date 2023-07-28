@@ -14,18 +14,17 @@
 </template>
 
 <script setup>
-// import { mapState } from 'vuex'
 import { storeToRefs } from 'pinia'
 import { useSidebarStore } from '@/stores'
 import { ref } from 'vue'
 
 const sidebarList = ref([
   {
-    link: 'RootTodoList',
+    link: 'UserViewTodoList',
     name: 'Todo'
   },
   {
-    link: 'home',
+    link: 'UserViewHomeView',
     name: 'Calendar'
   }
 ])

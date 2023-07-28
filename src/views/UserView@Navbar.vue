@@ -6,7 +6,6 @@
 
 <script setup>
 import BaseMenuIcon from '@/components/BaseMenuIcon.vue'
-
 import { useSidebarStore } from '@/stores'
 
 const { setSidebar } = useSidebarStore()

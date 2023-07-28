@@ -1,27 +1,32 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router/auto'
 
-Vue.use(VueRouter)
+// const routes = [
+//   {
+//     path: '/',
+//     name: 'login',
+//   },
+//   {
+//     path: '/user',
+//     name: 'user',
+//     component: () => import('@/views/Layout.vue'),
+//     components: {
+//       default: () => import('@/views/index.vue'),
+//       Navbar: () => import('@/components/TheNavbar.vue'),
+//       Sidebar: () => import('@/components/TheSidebar.vue'),
+//     },
+//     children: [
+//       {
+//         path: '/TodoList',
+//         name: 'TodoList',
+//         component: () => import('@/views/TodoList.vue'),
+//       }
+//     ]
+//   }
+// ]
 
-const routes = [
-	{
-		path: '/',
-		name: 'home',
-		component: () => import('@/views/Layout'),
-		children: [
-			{
-				path: '/TodoList',
-				name: 'TodoList',
-				component: () => import('@/views/TodoList'),
-			},
-		],
-	},
-]
-
-const router = new VueRouter({
-	mode: 'history',
-	base: process.env.BASE_URL,
-	routes,
+const router = createRouter({
+  history: createWebHistory()
+  // routes
 })
 
 export default router
