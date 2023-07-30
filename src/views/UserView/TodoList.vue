@@ -20,49 +20,67 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import BaseCheckbox from '@/components/BaseCheckbox.vue'
+import { ref } from 'vue'
 
-export default {
-  data () {
-    return {
-      todoList: [
-        {
-          completed: false,
-          title: '完成todo list 💻',
-          truncate: '完成todo list',
-          labels: ['Todolist']
-        },
-        {
-          completed: false,
-          title: '增加、查看todo list內容 💻',
-          truncate: 'todo list彈窗組件',
-          labels: ['Component', 'Todolist']
-        },
-        {
-          completed: false,
-          title: 'input組件 💻',
-          truncate: 'input組件設計與功能',
-          labels: ['Component']
-        },
-        {
-          completed: true,
-          title: 'CheckBox組件 💻',
-          truncate: 'CheckBox組件設計與功能',
-          labels: ['Component']
-        },
-        {
-          completed: true,
-          title: '建構框架 💻',
-          truncate: '使用vue-cli建構框架、Layout'
-        }
-      ]
-    }
-  },
-  components: {
-    BaseCheckbox
+interface ITodoList {
+  completed: boolean
+  title: string
+  truncate: string
+  labels: string[]
+}
+
+let todoList = ref<ITodoList[]>([])
+
+const callApi = () => {
+  return {
+    success: true,
+    data: [
+      {
+        completed: false,
+        title: '完成todo list 💻',
+        truncate: '完成todo list',
+        labels: ['Todolist'],
+      },
+      {
+        completed: false,
+        title: '增加、查看todo list內容 💻',
+        truncate: 'todo list彈窗組件',
+        labels: ['Component', 'Todolist'],
+      },
+      {
+        completed: false,
+        title: 'input組件 💻',
+        truncate: 'input組件設計與功能',
+        labels: ['Component'],
+      },
+      {
+        completed: true,
+        title: 'CheckBox組件 💻',
+        truncate: 'CheckBox組件設計與功能',
+        labels: ['Component'],
+      },
+      {
+        completed: true,
+        title: '建構框架 💻',
+        truncate: '使用vue-cli建構框架、Layout',
+        labels: [],
+      },
+    ],
   }
 }
+
+const init = async () => {
+  try {
+    let { data = [] } = await callApi()
+    todoList.value = data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+init()
 </script>
 
 <style lang="scss" scoped>

@@ -5,7 +5,7 @@
         :class="{ active: item.link === $route.name }"
         v-for="item in sidebarList"
         :key="item.name"
-        @click="$router.push({ name: item.link })"
+        @click="$router.push({ name: item.link  })"
       >
         {{ item.name }}
       </li>
@@ -13,12 +13,18 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useSidebarStore } from '@/stores'
 import { ref } from 'vue'
+import type { RouteNamedMap } from 'vue-router/auto/routes'
 
-const sidebarList = ref([
+interface IRouter {
+  name: string;
+  link: keyof RouteNamedMap;
+}
+
+const sidebarList = ref<IRouter[]>([
   {
     link: 'UserViewTodoList',
     name: 'Todo'

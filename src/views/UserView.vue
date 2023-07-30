@@ -1,8 +1,8 @@
 <template>
-  <router-view />
+  <RouterView />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { definePage } from 'vue-router/auto'
 
 definePage({

@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import BaseMenuIcon from '@/components/BaseMenuIcon.vue'
 import { useSidebarStore } from '@/stores'
 
