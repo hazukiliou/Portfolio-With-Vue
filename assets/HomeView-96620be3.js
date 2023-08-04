@@ -1,1 +1,0 @@
-import{_ as e}from"./logo-6c9d272b.js";import{_ as o,o as s,c as t,a as c}from"./index-32ce2d10.js";const _={},r={class:"home"},a=c("img",{alt:"Vue logo",src:e},null,-1),n=[a];function i(m,l){return s(),t("div",r,n)}const p=o(_,[["render",i]]);export{p as default};
