@@ -1,5 +1,5 @@
 const config = {
-  disableScriptLoad: process.env.NODE_ENV === 'development',
+  enabled: process.env.NODE_ENV === 'production',
   config: { id: 'G-XEZDHQZ5JD' }
 }
 
